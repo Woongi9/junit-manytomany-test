@@ -28,14 +28,17 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class EnrollmentTest {
 
-    @Autowired
-    StudentRepository studentRepo;
+    private final StudentRepository studentRepo;
+    private final CourseRepository courseRepo;
+    private final EnrollmentRepository enrollmentRepo;
 
-    @Autowired
-    CourseRepository courseRepo;
-
-    @Autowired
-    EnrollmentRepository enrollmentRepo;
+    public EnrollmentTest(StudentRepository studentRepo,
+                          CourseRepository courseRepo,
+                          EnrollmentRepository enrollmentRepo) {
+        this.studentRepo = studentRepo;
+        this.courseRepo = courseRepo;
+        this.enrollmentRepo = enrollmentRepo;
+    }
 
     @Test
     @Transactional

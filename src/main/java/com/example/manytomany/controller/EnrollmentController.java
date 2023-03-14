@@ -1,6 +1,9 @@
 package com.example.manytomany.controller;
 
+import com.example.manytomany.entity.Enrollment;
 import com.example.manytomany.entity.Student;
+import com.example.manytomany.repository.CourseRepository;
+import com.example.manytomany.repository.EnrollmentRepository;
 import com.example.manytomany.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class EnrollmentController {
 
     private final StudentRepository studentRepository;
+    private final CourseRepository courseRepository;
+    private final EnrollmentRepository enrollmentRepository;
+
 
     @GetMapping("/student")
     public Student findStudent() {
